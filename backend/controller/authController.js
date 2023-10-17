@@ -3,7 +3,7 @@ class authController{
     adminlogin = async (req, res) => {
         const { email, password } = req.body;
         try {
-            const admin = await adminmodel.findOne({ email });
+            const admin = await adminmodel.findOne({ email }).select('+password');
             console.log(email);
         } catch (error) {
             
